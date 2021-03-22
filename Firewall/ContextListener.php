@@ -159,7 +159,7 @@ class ContextListener extends AbstractListener
 
         $request = $event->getRequest();
 
-        if (!$request->hasSession()) {
+        if (!$request->hasPreviousSession()) {
             return;
         }
 

@@ -100,6 +100,7 @@ class ContextListenerTest extends TestCase
         $this->assertFalse($session->has('_security_session'));
     }
 
+    // This gets broken
     public function testOnKernelResponseWithoutSession()
     {
         $tokenStorage = new TokenStorage();
@@ -214,7 +215,7 @@ class ContextListenerTest extends TestCase
 
         $request = $this->createMock(Request::class);
         $request->expects($this->any())
-            ->method('hasSession')
+            ->method('hasPreviousSession')
             ->willReturn(true);
         $request->expects($this->any())
             ->method('getSession')
